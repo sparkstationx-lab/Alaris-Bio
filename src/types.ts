@@ -1,0 +1,46 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+export interface TumorModel {
+  id: string;
+  name: string; // e.g. MC38, CT26, A549
+  type: "Syngeneic" | "Xenograft (CDX)" | "Humanized" | "PDX";
+  origin: string; // e.g. Colon, Lung, Breast, Prostate
+  species: string; // e.g. Mouse, Human
+  hostStrain: string; // e.g. C57BL/6, BALB/c, Athymic Nude, NSG
+  growthRate: "Fast" | "Moderate" | "Slow";
+  doublingTimeDays: number;
+  standardTreatments: string[]; // e.g. anti-PD-1, Gemcitabine, Cisplatin
+  controlDataUrl?: string;
+  description: string;
+}
+
+export interface ServiceDetail {
+  id: string;
+  title: string;
+  category: "Oncology" | "Pharmacokinetics" | "Toxicology" | "Ex Vivo";
+  description: string;
+  bulletPoints: string[];
+  iconName: string;
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  credentials: string; // e.g. PhD, DVM
+  bio: string;
+  avatarUrl?: string;
+}
+
+export interface InquiryFormState {
+  name: string;
+  email: string;
+  company: string;
+  phone?: string;
+  message: string;
+  interestedService: string;
+  urgency: "Urgent (Within 1 month)" | "Medium (1-3 months)" | "Exploratory (>3 months)";
+  uploadedProtocolName?: string;
+}

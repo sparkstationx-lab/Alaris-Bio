@@ -95,9 +95,11 @@ export default function ProductsPage({ onBackToHome, onRequestProposal }: Produc
           <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
             Complete Product List
           </h1>
-          <p className="text-slate-600 font-sans text-sm sm:text-base max-w-2xl mx-auto">
-            Comprehensive list of pharmaceutical formulations with Product Name and Packing details. Search, filter, and inquire directly for custom bulk orders.
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+            <span className="px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase shadow-2xs">1200+ Approved Formulations</span>
+            <span className="px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase shadow-2xs">Alu-Alu & Blister Packing</span>
+            <span className="px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase shadow-2xs">WHO-GMP Batch Testing</span>
+          </div>
         </motion.div>
 
         {/* Filter & Search Toolbar */}
@@ -310,9 +312,11 @@ export default function ProductsPage({ onBackToHome, onRequestProposal }: Produc
             <div>
               <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-400 block mb-1">Contract Manufacturing & Export</span>
               <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight">Need Custom Formulations or Bulk Exports?</h4>
-              <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl font-sans leading-relaxed">
-                We accommodate specialized dosage requirements, custom packaging options, and bulk contract manufacturing backed by complete dossier documentation.
-              </p>
+              <div className="flex flex-wrap items-center gap-2 mt-2">
+                <span className="px-3 py-1 rounded-full bg-slate-800 text-sky-300 text-xs font-mono font-bold uppercase">Custom Dosages</span>
+                <span className="px-3 py-1 rounded-full bg-slate-800 text-sky-300 text-xs font-mono font-bold uppercase">Bulk Contract Production</span>
+                <span className="px-3 py-1 rounded-full bg-slate-800 text-sky-300 text-xs font-mono font-bold uppercase">Complete Dossier Support</span>
+              </div>
             </div>
           </div>
           <button
@@ -382,10 +386,11 @@ export default function ProductsPage({ onBackToHome, onRequestProposal }: Produc
                   </div>
                 </div>
 
-                {/* Info Text */}
-                <p className="text-xs text-slate-600 leading-relaxed font-sans">
-                  Product specifications, commercial packaging details, and dossier availability are accessible upon submitting an inquiry.
-                </p>
+                {/* Info Badges */}
+                <div className="flex flex-wrap items-center gap-2 pt-1">
+                  <span className="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-[11px] font-mono font-semibold">Assay & Dissolution Tested</span>
+                  <span className="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-[11px] font-mono font-semibold">COA Provided per Batch</span>
+                </div>
 
                 {/* Modal CTA */}
                 <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-end gap-3">

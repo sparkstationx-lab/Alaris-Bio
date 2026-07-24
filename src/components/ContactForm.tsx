@@ -129,11 +129,13 @@ export default function ContactForm({ prefilledProduct }: ContactFormProps) {
                 <span>Request For Proposal</span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Initiate Your Preclinical Study Program
+                Submit Third-Party Manufacturing Requirement
               </h2>
-              <p className="text-slate-600 font-sans text-xs sm:text-sm leading-relaxed">
-                Connect directly with our pharmacology coordinators. Submit your protocol specifications or drug details for a secure, fast, binding feasibility proposal.
-              </p>
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-mono font-bold uppercase shadow-2xs">3rd Party Enquiries</span>
+                <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-mono font-bold uppercase shadow-2xs">MOQ & Price Quotes</span>
+                <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-mono font-bold uppercase shadow-2xs">Fast Proposal Turnaround</span>
+              </div>
             </div>
 
             {/* Quick contact pointers */}
@@ -187,10 +189,10 @@ export default function ContactForm({ prefilledProduct }: ContactFormProps) {
               <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center shrink-0">
                 <Clock className="w-5 h-5" />
               </div>
-              <p className="text-xs text-slate-300 leading-normal font-sans">
-                <span className="text-white font-bold block mb-0.5">Rapid Initiation Guarantee</span>
-                Approved syngeneic & PK protocols launch within 10-14 days of compound receipt.
-              </p>
+              <div className="text-xs text-slate-300 font-sans">
+                <span className="text-white font-bold block mb-0.5">31-Day Guaranteed Turnaround</span>
+                <span className="text-[11px] font-mono text-sky-300">Fast batch dispatches from artwork finalization</span>
+              </div>
             </div>
           </div>
 

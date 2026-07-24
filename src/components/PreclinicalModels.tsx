@@ -43,9 +43,11 @@ export default function PreclinicalModels({ onViewAllProducts }: PreclinicalMode
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Featured Pharmaceutical Products
           </h2>
-          <p className="text-slate-600 font-sans text-sm sm:text-base max-w-2xl mx-auto">
-            WHO-GMP certified pharmaceutical formulations manufactured under stringent international quality control standards.
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+            <span className="px-3 py-1 rounded-full bg-white border border-slate-200/80 text-slate-700 text-xs font-mono font-bold uppercase shadow-2xs">WHO-GMP Certified</span>
+            <span className="px-3 py-1 rounded-full bg-white border border-slate-200/80 text-slate-700 text-xs font-mono font-bold uppercase shadow-2xs">Assay & Dissolution Tested</span>
+            <span className="px-3 py-1 rounded-full bg-white border border-slate-200/80 text-slate-700 text-xs font-mono font-bold uppercase shadow-2xs">Custom Packaging Options</span>
+          </div>
         </motion.div>
 
         {/* Featured Products Grid */}

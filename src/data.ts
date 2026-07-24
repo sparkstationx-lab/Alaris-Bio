@@ -195,52 +195,52 @@ export const TEAM: TeamMember[] = [
 
 export const FAQS = [
   {
-    question: "What is your typical lead time for study initiation?",
-    answer: "Standard efficacy studies can be initiated within 10 to 14 business days of compound receipt and protocol sign-off."
+    question: "What is your turn-around time for 3rd party manufacturing?",
+    answer: "Complete batch production and dispatch within 31 working days from artwork finalization."
   },
   {
-    question: "Are your animal facilities accredited?",
-    answer: "Yes, our state-of-the-art barrier facilities feature 100% IACUC oversight and comply strictly with the Guide for Care and Use of Laboratory Animals."
+    question: "Are your manufacturing facilities WHO-GMP certified?",
+    answer: "Yes, our plants in Gwalior, Nalagarh (Solan, H.P.), and Roorkee (Uttarakhand) operate under strict WHO-GMP & cGMP guidelines."
   },
   {
-    question: "How do we receive updates during a live study?",
-    answer: "Clients receive weekly reports with raw data and charts. For critical parameters, updates are shared within 24 hours."
+    question: "Do you provide Certificate of Analysis (COA) with every batch?",
+    answer: "Yes, mandatory COA reports for Assay and Dissolution testing are supplied with every dispatched batch."
   },
   {
-    question: "Do you offer bioanalytical services?",
-    answer: "Yes, we provide fully integrated bioanalysis including plasma concentration mapping via validated LC-MS/MS partners."
+    question: "What dosage forms and packaging options do you offer?",
+    answer: "Tablets, Capsules (Hard & Soft Veg Gelatin), Oral Liquids in custom PET bottles, Ointments, and Sachets with Alu-Alu and PVC strip packaging."
   }
 ];
 
 export const PROCESS_STEPS = [
   {
     step: "01",
-    title: "Consultation & Design",
-    description: "Collaborate with our PhD scientists to design the optimal study protocol and endpoints."
+    title: "Artwork & Formulation Intake",
+    description: "Finalize pack designs, strip patterns (Alu-Alu/PVC), and molecule specs."
   },
   {
     step: "02",
-    title: "IACUC Approval & Prep",
-    description: "Fast-track internal IACUC approval, reagent formulation, and barrier scheduling."
+    title: "Raw Material QC Testing",
+    description: "API and excipient verification under ultra-modern lab protocols."
   },
   {
     step: "03",
-    title: "Study Inception",
-    description: "Sourcing from pathogen-free vendors, careful cell inoculation, and cohort randomization."
+    title: "cGMP Batch Manufacturing",
+    description: "Controlled state-of-the-art production in dedicated segment plants."
   },
   {
     step: "04",
-    title: "Live Execution",
-    description: "Daily dosing, clinical indexing, and multi-weekly tumor caliper and body weight measurements."
+    title: "COA & Assay Verification",
+    description: "Mandatory batch testing for Assay, Dissolution, and Micro-purity."
   },
   {
     step: "05",
-    title: "Necropsy & Bioanalysis",
-    description: "Standardized tissue collection, blood fractionation, and multi-color flow cytometry."
+    title: "Custom Strip Packaging",
+    description: "High-speed Alu-Alu, PVC blister, sachet, or PET bottle filling."
   },
   {
     step: "06",
-    title: "Final IND-Ready Report",
-    description: "A fully audited study report containing all raw data, graphs, and statistics for regulatory filing."
+    title: "31-Day Batch Dispatch",
+    description: "Strictly time-bound dispatch to your distribution location."
   }
 ];

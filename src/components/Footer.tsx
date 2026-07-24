@@ -57,13 +57,10 @@ export default function Footer({ onNavigateSection }: FooterProps) {
               </span>
             </div>
 
-            <div>
-              <h4 className="text-xs font-bold font-mono tracking-wider text-slate-200 uppercase mb-2">
-                About Us
-              </h4>
-              <p className="text-xs text-slate-400 leading-relaxed font-sans max-w-md">
-                Established in 2007, we are a well-established pharmaceutical manufacturing group with a strong commitment to quality and innovation. Our journey began with our first manufacturing unit located in the industrial area of Gwalior.
-              </p>
+            <div className="flex flex-wrap items-center gap-1.5 pt-1">
+              <span className="px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-[10px] font-mono font-bold uppercase">Est. 2007</span>
+              <span className="px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300 text-[10px] font-mono">Gwalior • Nalagarh • Roorkee</span>
+              <span className="px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300 text-[10px] font-mono">WHO-GMP & cGMP</span>
             </div>
 
             <div className="text-[10px] font-mono tracking-wide text-slate-500 pt-1">

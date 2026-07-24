@@ -112,20 +112,20 @@ export default function Hero() {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl"
         >
           <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 text-center">
-            <span className="font-display text-2xl font-extrabold text-sky-400 block">150+</span>
-            <span className="text-xs font-sans text-slate-300 mt-1 block">Syngeneic & CDX Models</span>
+            <span className="font-display text-2xl font-extrabold text-sky-400 block">1200+</span>
+            <span className="text-xs font-sans text-slate-300 mt-1 block">Product Approvals</span>
+          </div>
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 text-center">
+            <span className="font-display text-2xl font-extrabold text-white block">WHO-GMP</span>
+            <span className="text-xs font-sans text-slate-300 mt-1 block">Certified Facilities</span>
+          </div>
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 text-center">
+            <span className="font-display text-2xl font-extrabold text-sky-400 block">31 Days</span>
+            <span className="text-xs font-sans text-slate-300 mt-1 block">Guaranteed Turnaround</span>
           </div>
           <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 text-center">
             <span className="font-display text-2xl font-extrabold text-white block">100%</span>
-            <span className="text-xs font-sans text-slate-300 mt-1 block">IACUC Accredited</span>
-          </div>
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 text-center">
-            <span className="font-display text-2xl font-extrabold text-sky-400 block">10-14 Days</span>
-            <span className="text-xs font-sans text-slate-300 mt-1 block">Study Initiation Lead Time</span>
-          </div>
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 text-center">
-            <span className="font-display text-2xl font-extrabold text-white block">99.8%</span>
-            <span className="text-xs font-sans text-slate-300 mt-1 block">IND Audit Compliance</span>
+            <span className="text-xs font-sans text-slate-300 mt-1 block">QC & COA Compliance</span>
           </div>
         </motion.div>
 

@@ -4,7 +4,7 @@
  */
 
 import { useState } from "react";
-import { PROCESS_STEPS, FAQS } from "../data";
+import { FAQS } from "../data";
 import { ShieldAlert, Award, ChevronDown, ChevronUp, ShieldCheck, CheckCircle2, Sparkles, Building2, Factory, Clock, FileCheck, Zap } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -42,7 +42,7 @@ export default function About() {
         >
           <div className="inline-flex items-center justify-center space-x-2 px-3.5 py-1.5 rounded-full bg-sky-100/90 border border-sky-200 text-sky-800 text-[11px] font-mono uppercase font-bold tracking-wider shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-sky-600" />
-            <span>cGMP Quality & Regulatory Framework</span>
+            <span>Manufacturing Standards &amp; Facilities</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             WHO-GMP Certified Manufacturing Facilities &amp; Standards
@@ -218,51 +218,6 @@ export default function About() {
               </div>
             </div>
 
-          </div>
-        </motion.div>
-
-        {/* Bento Row 2: Operational Process Workflow */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-2xs text-left mb-16"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-8 pb-4 border-b border-slate-100">
-            <div>
-              <span className="text-[10px] font-mono font-bold text-sky-600 uppercase tracking-wider block mb-1">Execution Workflow</span>
-              <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Third-Party Manufacturing Lifecycle
-              </h3>
-            </div>
-            <span className="px-3 py-1 rounded-full bg-sky-50 border border-sky-100 text-sky-700 text-xs font-mono font-bold uppercase w-fit">
-              6 Structured Phases
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {PROCESS_STEPS.map((step) => (
-              <div 
-                key={step.step} 
-                className="bg-slate-50/80 p-5 rounded-2xl border border-slate-200/60 flex flex-col justify-between space-y-3 relative group hover:border-sky-300 hover:bg-sky-50/30 transition-all duration-300"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono font-bold text-sky-600 uppercase">
-                    Phase {step.step}
-                  </span>
-                  <span className="font-display font-extrabold text-2xl text-slate-200 group-hover:text-sky-200 transition-colors">
-                    {step.step}
-                  </span>
-                </div>
-                <h4 className="font-display text-base font-bold text-slate-900">
-                  {step.title}
-                </h4>
-                <span className="px-2.5 py-1 bg-white rounded-lg text-[11px] font-mono text-slate-700 border border-slate-200/80 font-medium">
-                  {step.description}
-                </span>
-              </div>
-            ))}
           </div>
         </motion.div>
 

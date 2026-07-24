@@ -7,9 +7,22 @@ import React from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Award, ShieldCheck, Clock, Zap, Activity, Microscope, CheckCircle2 } from "lucide-react";
 
-export default function Hero() {
+interface HeroProps {
+  onRequestProposal?: () => void;
+  onNavigateSection?: (sectionId: string) => void;
+}
+
+export default function Hero({ onRequestProposal, onNavigateSection }: HeroProps) {
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, targetId: string) => {
     e.preventDefault();
+    if (targetId === "#contact" && onRequestProposal) {
+      onRequestProposal();
+      return;
+    }
+    if (targetId === "#services" && onNavigateSection) {
+      onNavigateSection("services");
+      return;
+    }
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
       const offset = 85;

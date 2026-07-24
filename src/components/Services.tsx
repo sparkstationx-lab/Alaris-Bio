@@ -26,9 +26,17 @@ import {
   Send
 } from "lucide-react";
 
-export default function Services() {
+interface ServicesProps {
+  onRequestProposal?: () => void;
+}
+
+export default function Services({ onRequestProposal }: ServicesProps) {
   const handleEnquiryClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     e.preventDefault();
+    if (onRequestProposal) {
+      onRequestProposal();
+      return;
+    }
     const contactSection = document.querySelector("#contact");
     if (contactSection) {
       const offset = 85;

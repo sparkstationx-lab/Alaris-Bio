@@ -10,13 +10,15 @@ import Services from "./components/Services";
 import PreclinicalModels from "./components/PreclinicalModels";
 import About from "./components/About";
 import ContactForm from "./components/ContactForm";
+import ContactPage from "./components/ContactPage";
 import Footer from "./components/Footer";
 import ProductsPage from "./components/ProductsPage";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("home");
-  const [viewMode, setViewMode] = useState<"home" | "products-catalog">("home");
+  const [viewMode, setViewMode] = useState<"home" | "products-catalog" | "contact-page">("home");
+  const [prefilledProduct, setPrefilledProduct] = useState<string>("");
 
   // Scroll spy to highlight active sections in the sticky navigation header
   useEffect(() => {
@@ -44,30 +46,34 @@ export default function App() {
   }, [viewMode]);
 
   const handleNavigateSection = (sectionId: string) => {
-    if (viewMode !== "home") {
-      setViewMode("home");
+    if (sectionId === "contact") {
+      setViewMode("contact-page");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (sectionId === "products-catalog") {
+      setViewMode("products-catalog");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      if (viewMode !== "home") {
+        setViewMode("home");
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) {
+            const offset = 90;
+            const elementPosition = el.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - offset;
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+          }
+        }, 100);
+      }
     }
   };
-
-  const [prefilledProduct, setPrefilledProduct] = useState<string>("");
 
   const handleRequestProposal = (productName?: string) => {
     if (productName) {
       setPrefilledProduct(productName);
     }
-    setViewMode("home");
-    setTimeout(() => {
-      const contactEl = document.querySelector("#contact");
-      if (contactEl) {
-        const offset = 90;
-        const elementPosition = contactEl.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - offset;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
-    }, 100);
+    setViewMode("contact-page");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
 
@@ -75,7 +81,13 @@ export default function App() {
     <div className="min-h-screen bg-[#f0f7ff] text-slate-900 font-sans selection:bg-sky-200 selection:text-sky-900 antialiased">
       {/* Dynamic Header Navbar */}
       <Navbar 
-        activeSection={viewMode === "products-catalog" ? "products" : activeSection} 
+        activeSection={
+          viewMode === "products-catalog"
+            ? "products"
+            : viewMode === "contact-page"
+            ? "contact"
+            : activeSection
+        } 
         onNavigateSection={handleNavigateSection}
       />
 
@@ -97,6 +109,22 @@ export default function App() {
               onRequestProposal={handleRequestProposal}
             />
           </motion.div>
+        ) : viewMode === "contact-page" ? (
+          <motion.div
+            key="contact-page"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ContactPage
+              onBackToHome={() => {
+                setViewMode("home");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              prefilledProduct={prefilledProduct}
+            />
+          </motion.div>
         ) : (
           <motion.main 
             key="home-main"
@@ -107,10 +135,13 @@ export default function App() {
             className="relative"
           >
             {/* Section 1: Hero Banner */}
-            <Hero />
+            <Hero 
+              onRequestProposal={() => handleNavigateSection("contact")}
+              onNavigateSection={handleNavigateSection}
+            />
 
             {/* Section 2: Services Selector tab list */}
-            <Services />
+            <Services onRequestProposal={() => handleNavigateSection("contact")} />
 
             {/* Section 3: Featured 3 Products list with View All button */}
             <PreclinicalModels 

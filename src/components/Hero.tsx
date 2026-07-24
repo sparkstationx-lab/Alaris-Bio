@@ -60,20 +60,15 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Brand Logo Header Image */}
-        <motion.div 
+        {/* Bold Impactful Headline */}
+        <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-col items-center justify-center max-w-2xl mx-auto my-2"
+          className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] max-w-4xl"
         >
-          <img
-            src="/LOGO.png"
-            alt="Alaris Biosciences"
-            referrerPolicy="no-referrer"
-            className="w-full max-w-md sm:max-w-lg md:max-w-xl h-auto object-contain filter drop-shadow-[0_10px_30px_rgba(2,132,199,0.35)] hover:scale-[1.02] transition-transform duration-300"
-          />
-        </motion.div>
+          Alaris <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-300 to-blue-200">Biosciences</span>
+        </motion.h1>
 
         {/* Refined Center-Aligned Tagline */}
         <motion.div 

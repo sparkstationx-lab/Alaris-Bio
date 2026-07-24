@@ -79,14 +79,22 @@ export default function Navbar({ activeSection, onNavigateSection }: NavbarProps
           <a
             href="#home"
             onClick={(e) => handleLinkClick(e, "#home")}
-            className="flex items-center group focus:outline-none"
+            className="flex items-center space-x-2.5 group focus:outline-none"
           >
-            <img
-              src="/LOGO.png"
-              alt="Alaris Biosciences"
-              referrerPolicy="no-referrer"
-              className="h-8 sm:h-9 w-auto max-w-[180px] sm:max-w-[220px] object-contain transition-transform duration-300 group-hover:scale-105"
-            />
+            <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-tr from-sky-600 to-blue-600 text-white shadow-md shadow-sky-600/20 transition-transform duration-300 group-hover:scale-105">
+              <Shield className="w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-white flex items-center justify-center">
+                <Activity className="w-1 h-1 text-white animate-pulse" />
+              </div>
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="font-display text-base sm:text-lg font-bold tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
+                Alaris <span className="text-sky-600 font-semibold">Biosciences</span>
+              </span>
+              <span className="text-[8px] sm:text-[9px] font-mono tracking-widest text-slate-400 uppercase leading-none">
+                Third-Party Medicine Manufacturer
+              </span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}

@@ -45,13 +45,16 @@ export default function Footer({ onNavigateSection }: FooterProps) {
           
           {/* Brand & About Block */}
           <div className="md:col-span-5 flex flex-col space-y-4">
-            <div className="flex items-center">
-              <img
-                src="/LOGO.png"
-                alt="Alaris Biosciences"
-                referrerPolicy="no-referrer"
-                className="h-10 sm:h-11 w-auto max-w-[240px] object-contain filter brightness-110 drop-shadow-[0_2px_10px_rgba(2,132,199,0.2)]"
-              />
+            <div className="flex items-center space-x-2.5">
+              <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-sky-400 text-slate-950 shadow-md shadow-sky-500/20">
+                <Shield className="w-5 h-5" />
+                <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-sky-200 border-2 border-slate-950 flex items-center justify-center">
+                  <Activity className="w-1.5 h-1.5 text-slate-950 animate-pulse" />
+                </div>
+              </div>
+              <span className="font-display text-lg font-bold tracking-tight text-white">
+                Alaris <span className="text-sky-400 font-medium">Biosciences</span>
+              </span>
             </div>
 
             <div>

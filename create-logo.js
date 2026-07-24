@@ -1,0 +1,102 @@
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
+
+const svg = `
+<svg width="1000" height="300" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1" />
+      <stop offset="50%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    
+    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0284c7" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <g transform="translate(40, 30)">
+    <!-- Logo Icon / Helix Emblem -->
+    <g filter="url(#shadow)" transform="translate(10, 20)">
+      <!-- Outer Hex Shield / Ring -->
+      <path d="M 100,10 L 175,53 L 175,140 L 100,183 L 25,140 L 25,53 Z" fill="none" stroke="url(#skyGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+      
+      <!-- Inner Molecular Nodes & Helix Lines -->
+      <path d="M 60,60 C 80,90 120,110 140,140" fill="none" stroke="url(#navyGrad)" stroke-width="12" stroke-linecap="round" />
+      <path d="M 140,60 C 120,90 80,110 60,140" fill="none" stroke="url(#skyGrad)" stroke-width="12" stroke-linecap="round" />
+      
+      <!-- Horizontal Connecting Bonds -->
+      <line x1="72" y1="80" x2="128" y2="80" stroke="#0284c7" stroke-width="5" opacity="0.8" stroke-dasharray="2 2" />
+      <line x1="60" y1="100" x2="140" y2="100" stroke="#0f172a" stroke-width="6" opacity="0.9" />
+      <line x1="72" y1="120" x2="128" y2="120" stroke="#0284c7" stroke-width="5" opacity="0.8" stroke-dasharray="2 2" />
+
+      <!-- Spherical Atoms / Nodes -->
+      <circle cx="60" cy="60" r="11" fill="#0f172a" stroke="#ffffff" stroke-width="3" />
+      <circle cx="140" cy="60" r="11" fill="#0284c7" stroke="#ffffff" stroke-width="3" />
+      <circle cx="100" cy="100" r="9" fill="#38bdf8" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="60" cy="140" r="11" fill="#0284c7" stroke="#ffffff" stroke-width="3" />
+      <circle cx="140" cy="140" r="11" fill="#0f172a" stroke="#ffffff" stroke-width="3" />
+    </g>
+
+    <!-- Typography Text Group -->
+    <g transform="translate(225, 65)">
+      <!-- Brand Name: ALARIS -->
+      <text x="0" y="70" font-family="'Plus Jakarta Sans', 'Inter', 'Segoe UI', system-ui, sans-serif" font-weight="900" font-size="76" fill="#0f172a" letter-spacing="4">
+        ALARIS
+      </text>
+      
+      <!-- Brand Subheading: BIOSCIENCES -->
+      <text x="5" y="115" font-family="'Plus Jakarta Sans', 'Inter', 'Segoe UI', system-ui, sans-serif" font-weight="800" font-size="28" fill="#0284c7" letter-spacing="12">
+        BIOSCIENCES
+      </text>
+
+      <!-- Tagline / Badge Line -->
+      <g transform="translate(5, 132)">
+        <rect x="0" y="0" width="360" height="3" rx="1.5" fill="url(#accentGlow)" />
+        <text x="0" y="22" font-family="'Inter', system-ui, sans-serif" font-weight="700" font-size="14" fill="#64748b" letter-spacing="4">
+          WHO-GMP CERTIFIED PHARMACEUTICALS
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
+`;
+
+async function main() {
+  const publicDir = path.resolve('public');
+  if (!fs.existsSync(publicDir)) {
+    fs.mkdirSync(publicDir, { recursive: true });
+  }
+
+  // Save SVG
+  fs.writeFileSync(path.join(publicDir, 'LOGO.svg'), svg);
+  fs.writeFileSync(path.join(publicDir, 'logo.svg'), svg);
+
+  // Convert to high-resolution PNG
+  await sharp(Buffer.from(svg))
+    .png()
+    .toFile(path.join(publicDir, 'LOGO.png'));
+
+  await sharp(Buffer.from(svg))
+    .png()
+    .toFile(path.join(publicDir, 'logo.png'));
+
+  console.log('Successfully generated LOGO.png and LOGO.svg in public folder!');
+}
+
+main().catch(err => {
+  console.error(err);
+  process.exit(1);
+});

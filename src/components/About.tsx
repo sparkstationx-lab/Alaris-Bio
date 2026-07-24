@@ -16,11 +16,17 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-24 bg-slate-50/50 border-b border-slate-200/60 overflow-hidden relative">
+    <section id="about" className="py-24 bg-[#f0f7ff] bg-grid-pattern border-b border-sky-100/80 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col space-y-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16 flex flex-col space-y-3"
+        >
           <div className="inline-flex items-center justify-center space-x-2 self-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100 text-sky-700 text-[11px] font-mono uppercase font-bold tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-sky-600" />
             <span>Facility & Quality Standards</span>
@@ -31,10 +37,17 @@ export default function About() {
           <p className="text-slate-600 font-sans text-sm sm:text-base max-w-xl mx-auto">
             Operating under 100% IACUC oversight in AAALAC-standard barrier facilities with board-certified veterinary monitoring.
           </p>
-        </div>
+        </motion.div>
 
         {/* Bento Grid Row 1: Facility Narrative + Specs + Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-20">
+        <motion.div 
+          id="gallery"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-20"
+        >
           
           {/* Card 1: Ethics & Care Narrative */}
           <div className="lg:col-span-7 bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between text-left">
@@ -43,11 +56,8 @@ export default function About() {
               <h3 className="font-display text-2xl font-bold text-slate-900 mb-4">
                 High-Quality Care Drives Reliable Preclinical Data
               </h3>
-              <p className="text-slate-600 font-sans text-xs sm:text-sm leading-relaxed mb-4">
-                We maintain that high-quality scientific outcomes depend on high-quality animal care. Our climate-controlled barrier facilities operate under 100% IACUC program oversight in strict compliance with the Guide for the Care and Use of Laboratory Animals.
-              </p>
               <p className="text-slate-600 font-sans text-xs sm:text-sm leading-relaxed mb-6">
-                Every rodent is housed in positive-pressure, HEPA-filtered Venti-racks, fed sterile diets, and monitored 24/7 by board-certified veterinary technicians to reduce experimental variance.
+                Our positive-pressure, HEPA-filtered Venti-rack barrier facilities operate under 100% IACUC oversight and 24/7 veterinary monitoring to eliminate experimental variance and deliver regulatory-compliant data.
               </p>
             </div>
 
@@ -110,10 +120,16 @@ export default function About() {
             </div>
           </div>
 
-        </div>
+        </motion.div>
 
         {/* Bento Row 2: Workflow Lifecycle Grid */}
-        <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm text-left mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm text-left mb-20"
+        >
           <div className="max-w-2xl mb-10">
             <span className="text-[10px] font-mono font-bold text-sky-600 uppercase tracking-wider block mb-1">Operational Efficiency</span>
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
@@ -145,10 +161,16 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Bento Row 3: Science Leadership Profiles */}
-        <div className="mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-[10px] font-mono font-bold text-sky-600 uppercase tracking-wider block mb-1">Scientific Oversight</span>
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
@@ -181,10 +203,16 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Bento Row 4: Client FAQ Accordion */}
-        <div className="max-w-4xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto"
+        >
           <div className="text-center mb-10">
             <span className="text-[10px] font-mono font-bold text-sky-600 uppercase tracking-wider block mb-1">Client FAQs</span>
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
@@ -220,7 +248,7 @@ export default function About() {
               );
             })}
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

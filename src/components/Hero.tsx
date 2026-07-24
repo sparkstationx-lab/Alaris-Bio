@@ -37,6 +37,7 @@ export default function Hero() {
         />
         {/* Subtle, sophisticated gradient overlays for high contrast and light-blue ambiance */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/70 to-slate-950/90 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
         <div className="absolute inset-0 bg-radial-gradient opacity-30 pointer-events-none" />
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-sky-500/20 rounded-full blur-[140px] pointer-events-none" />
       </div>
@@ -59,25 +60,31 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Bold Impactful Headline */}
-        <motion.h1 
+        {/* Brand Logo Header Image */}
+        <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] max-w-4xl"
+          className="flex flex-col items-center justify-center max-w-2xl mx-auto my-2"
         >
-          Precision <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-300 to-blue-200">In Vivo Pharmacology</span> & Preclinical Oncology
-        </motion.h1>
+          <img
+            src="/LOGO.png"
+            alt="Alaris Biosciences"
+            referrerPolicy="no-referrer"
+            className="w-full max-w-md sm:max-w-lg md:max-w-xl h-auto object-contain filter drop-shadow-[0_10px_30px_rgba(2,132,199,0.35)] hover:scale-[1.02] transition-transform duration-300"
+          />
+        </motion.div>
 
-        {/* Concise Supporting Subtitle */}
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
+        {/* Refined Center-Aligned Tagline */}
+        <motion.div 
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-6 text-slate-300 text-base sm:text-xl max-w-2xl font-sans leading-relaxed text-center"
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mt-4 sm:mt-5 text-xs sm:text-sm font-mono font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-sky-300/90 uppercase text-center max-w-3xl"
         >
-          Accelerating IND-enabling pipelines with pre-validated tumor models, rapid PK/ADME profiling, and rigorous CRO scientific integrity.
-        </motion.p>
+          YOUR TRUSTED THIRD-PARTY MEDICINE MANUFACTURER
+        </motion.div>
+
 
         {/* Primary Call-to-Action Buttons (Center Aligned) */}
         <motion.div 

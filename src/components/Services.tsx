@@ -29,11 +29,17 @@ export default function Services() {
   const selectedService = SERVICES.find((s) => s.id === selectedServiceId);
 
   return (
-    <section id="services" className="py-24 bg-slate-50/70 border-b border-slate-200/60 relative">
+    <section id="services" className="py-24 bg-[#f0f7ff] bg-grid-pattern border-b border-sky-100/80 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col space-y-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16 flex flex-col space-y-3"
+        >
           <div className="inline-flex items-center justify-center space-x-2 self-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100 text-sky-700 text-[11px] font-mono uppercase font-bold tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-sky-600" />
             <span>Core Capabilities</span>
@@ -44,10 +50,16 @@ export default function Services() {
           <p className="text-slate-600 font-sans text-sm sm:text-base max-w-xl mx-auto">
             Targeted oncology model screens, pharmacokinetic mapping, and biomarker validation with PhD-led oversight.
           </p>
-        </div>
+        </motion.div>
 
         {/* Modern Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-6"
+        >
           
           {/* Bento Card 1: Oncology & Immuno-Oncology (Wide Feature Card) */}
           <motion.div 
@@ -224,7 +236,7 @@ export default function Services() {
             </div>
           </motion.div>
 
-        </div>
+        </motion.div>
 
       </div>
 

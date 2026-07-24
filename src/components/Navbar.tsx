@@ -3,16 +3,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from "react";
-import { Menu, X, Shield, Activity, ArrowRight } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { Menu, X, Shield, Activity, ArrowRight, ChevronDown, Factory } from "lucide-react";
 
 interface NavbarProps {
   activeSection: string;
+  onNavigateSection?: (sectionId: string) => void;
 }
 
-export default function Navbar({ activeSection }: NavbarProps) {
+export default function Navbar({ activeSection, onNavigateSection }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,42 +26,42 @@ export default function Navbar({ activeSection }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Validated Models", href: "#models" },
-    { name: "Quality & Standards", href: "#about" },
-  ];
-
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const targetElement = document.querySelector(href);
-    if (targetElement) {
-      const offset = 90; // Floating navbar offset
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - offset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+    setServicesDropdownOpen(false);
+
+    if (onNavigateSection) {
+      onNavigateSection(href.slice(1));
     }
+
+    // Scroll smoothly after slight delay if view switches
+    setTimeout(() => {
+      const targetElement = document.querySelector(href) || (href === "#products" ? document.querySelector("#models") : null);
+      if (targetElement) {
+        const offset = 90; // Floating navbar offset
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 50);
   };
 
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    const targetElement = document.querySelector("#contact");
-    if (targetElement) {
-      const offset = 90;
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+  const handleDropdownMouseEnter = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
     }
+    setServicesDropdownOpen(true);
+  };
+
+  const handleDropdownMouseLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setServicesDropdownOpen(false);
+    }, 150);
   };
 
   return (
@@ -75,48 +79,134 @@ export default function Navbar({ activeSection }: NavbarProps) {
           <a
             href="#home"
             onClick={(e) => handleLinkClick(e, "#home")}
-            className="flex items-center space-x-2.5 group focus:outline-none"
+            className="flex items-center group focus:outline-none"
           >
-            <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-tr from-sky-600 to-blue-600 text-white shadow-md shadow-sky-600/20 transition-transform duration-300 group-hover:scale-105">
-              <Shield className="w-4 h-4 sm:w-5 sm:h-5" />
-              <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-white flex items-center justify-center">
-                <Activity className="w-1 h-1 text-white animate-pulse" />
-              </div>
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="font-display text-base sm:text-lg font-bold tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
-                Alaris <span className="text-sky-600 font-semibold">Bio</span>
-              </span>
-              <span className="text-[8px] sm:text-[9px] font-mono tracking-widest text-slate-400 uppercase leading-none">
-                Preclinical CRO
-              </span>
-            </div>
+            <img
+              src="/LOGO.png"
+              alt="Alaris Biosciences"
+              referrerPolicy="no-referrer"
+              className="h-8 sm:h-9 w-auto max-w-[180px] sm:max-w-[220px] object-contain transition-transform duration-300 group-hover:scale-105"
+            />
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             <div className="bg-slate-100/70 p-1 rounded-full border border-slate-200/60 flex items-center space-x-1 mr-2">
-              {navLinks.map((link) => {
-                const isActive = activeSection === link.href.slice(1);
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleLinkClick(e, link.href)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
-                      isActive
-                        ? "bg-white text-sky-600 shadow-xs border border-slate-200/50"
-                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
-                    }`}
-                  >
-                    {link.name}
-                  </a>
-                );
-              })}
+              
+              {/* Home */}
+              <a
+                href="#home"
+                onClick={(e) => handleLinkClick(e, "#home")}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                  activeSection === "home"
+                    ? "bg-white text-sky-600 shadow-xs border border-slate-200/50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
+                }`}
+              >
+                Home
+              </a>
+
+              {/* About */}
+              <a
+                href="#about"
+                onClick={(e) => handleLinkClick(e, "#about")}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                  activeSection === "about"
+                    ? "bg-white text-sky-600 shadow-xs border border-slate-200/50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
+                }`}
+              >
+                About
+              </a>
+
+              {/* Services with Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={handleDropdownMouseEnter}
+                onMouseLeave={handleDropdownMouseLeave}
+              >
+                <a
+                  href="#services"
+                  onClick={(e) => handleLinkClick(e, "#services")}
+                  className={`inline-flex items-center space-x-1 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                    activeSection === "services"
+                      ? "bg-white text-sky-600 shadow-xs border border-slate-200/50"
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
+                  }`}
+                >
+                  <span>Services</span>
+                  <ChevronDown className={`w-3 h-3 text-slate-400 transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180 text-sky-600" : ""}`} />
+                </a>
+
+                {/* Dropdown Menu */}
+                {servicesDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-72 bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-2xl shadow-xl p-2 z-50 animate-fade-in-up">
+                    <a
+                      href="#services"
+                      onClick={(e) => handleLinkClick(e, "#services")}
+                      className="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-sky-50/80 transition-colors group text-left"
+                    >
+                      <div className="p-2 rounded-lg bg-sky-100/80 text-sky-700 group-hover:bg-sky-600 group-hover:text-white transition-colors shrink-0 mt-0.5">
+                        <Factory className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <span className="text-xs font-bold text-slate-900 group-hover:text-sky-600 transition-colors block">
+                          Third-Party Manufacturing / Contract Manufacturing
+                        </span>
+                        <span className="text-[10px] text-slate-500 block leading-tight mt-0.5">
+                          WHO-GMP certified pharmaceutical production & formulation services
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              {/* Products */}
+              <a
+                href="#products"
+                onClick={(e) => handleLinkClick(e, "#products")}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                  activeSection === "products" || activeSection === "models"
+                    ? "bg-white text-sky-600 shadow-xs border border-slate-200/50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
+                }`}
+              >
+                Products
+              </a>
+
+              {/* Gallery */}
+              <a
+                href="#gallery"
+                onClick={(e) => handleLinkClick(e, "#gallery")}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                  activeSection === "gallery"
+                    ? "bg-white text-sky-600 shadow-xs border border-slate-200/50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
+                }`}
+              >
+                Gallery
+              </a>
+
+              {/* Contact */}
+              <a
+                href="#contact"
+                onClick={(e) => handleLinkClick(e, "#contact")}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                  activeSection === "contact"
+                    ? "bg-white text-sky-600 shadow-xs border border-slate-200/50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
+                }`}
+              >
+                Contact
+              </a>
+
             </div>
+
+            {/* Request Proposal CTA Button */}
             <a
               href="#contact"
-              onClick={handleContactClick}
+              onClick={(e) => handleLinkClick(e, "#contact")}
               className="group relative inline-flex items-center justify-center px-4 py-2 text-xs font-semibold tracking-wide text-white bg-slate-900 hover:bg-sky-600 rounded-full shadow-sm shadow-slate-950/20 transition-all duration-300 hover:shadow-md hover:shadow-sky-600/20 active:scale-95"
             >
               <span>Request Proposal</span>
@@ -145,30 +235,113 @@ export default function Navbar({ activeSection }: NavbarProps) {
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div
-            className="md:hidden mt-3 pt-2 pb-4 border-t border-slate-100 space-y-1.5 animate-fade-in-up"
+            className="md:hidden mt-3 pt-2 pb-4 border-t border-slate-100 space-y-1 animate-fade-in-up text-left"
             id="mobile-menu"
           >
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.href.slice(1);
-              return (
+            {/* Home */}
+            <a
+              href="#home"
+              onClick={(e) => handleLinkClick(e, "#home")}
+              className={`block px-4 py-2 rounded-2xl text-xs font-semibold transition-all ${
+                activeSection === "home"
+                  ? "bg-sky-50 text-sky-700 font-bold border-l-2 border-sky-600"
+                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+              }`}
+            >
+              Home
+            </a>
+
+            {/* About */}
+            <a
+              href="#about"
+              onClick={(e) => handleLinkClick(e, "#about")}
+              className={`block px-4 py-2 rounded-2xl text-xs font-semibold transition-all ${
+                activeSection === "about"
+                  ? "bg-sky-50 text-sky-700 font-bold border-l-2 border-sky-600"
+                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+              }`}
+            >
+              About
+            </a>
+
+            {/* Services Dropdown in Mobile */}
+            <div>
+              <div className="flex items-center justify-between px-4 py-2">
                 <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleLinkClick(e, link.href)}
-                  className={`block px-4 py-2.5 rounded-2xl text-xs font-semibold transition-all ${
-                    isActive
-                      ? "bg-sky-50 text-sky-700 font-bold border-l-2 border-sky-600"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                  href="#services"
+                  onClick={(e) => handleLinkClick(e, "#services")}
+                  className={`text-xs font-semibold transition-all ${
+                    activeSection === "services"
+                      ? "text-sky-700 font-bold"
+                      : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
-                  {link.name}
+                  Services
                 </a>
-              );
-            })}
+                <button
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  className="p-1 text-slate-400 hover:text-slate-600"
+                >
+                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                </button>
+              </div>
+
+              {/* Sub-menu item */}
+              <div className="pl-6 pr-2 py-1 space-y-1 border-l border-slate-200 ml-4 mb-1">
+                <a
+                  href="#services"
+                  onClick={(e) => handleLinkClick(e, "#services")}
+                  className="flex items-center space-x-2 px-3 py-2 rounded-xl text-[11px] font-medium text-slate-600 hover:text-sky-700 hover:bg-sky-50 transition-colors"
+                >
+                  <Factory className="w-3.5 h-3.5 text-sky-600 shrink-0" />
+                  <span>Third-Party Manufacturing / Contract Manufacturing</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Products */}
+            <a
+              href="#products"
+              onClick={(e) => handleLinkClick(e, "#products")}
+              className={`block px-4 py-2 rounded-2xl text-xs font-semibold transition-all ${
+                activeSection === "products" || activeSection === "models"
+                  ? "bg-sky-50 text-sky-700 font-bold border-l-2 border-sky-600"
+                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+              }`}
+            >
+              Products
+            </a>
+
+            {/* Gallery */}
+            <a
+              href="#gallery"
+              onClick={(e) => handleLinkClick(e, "#gallery")}
+              className={`block px-4 py-2 rounded-2xl text-xs font-semibold transition-all ${
+                activeSection === "gallery"
+                  ? "bg-sky-50 text-sky-700 font-bold border-l-2 border-sky-600"
+                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+              }`}
+            >
+              Gallery
+            </a>
+
+            {/* Contact */}
+            <a
+              href="#contact"
+              onClick={(e) => handleLinkClick(e, "#contact")}
+              className={`block px-4 py-2 rounded-2xl text-xs font-semibold transition-all ${
+                activeSection === "contact"
+                  ? "bg-sky-50 text-sky-700 font-bold border-l-2 border-sky-600"
+                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+              }`}
+            >
+              Contact
+            </a>
+
             <div className="pt-2">
               <a
                 href="#contact"
-                onClick={handleContactClick}
+                onClick={(e) => handleLinkClick(e, "#contact")}
                 className="flex w-full items-center justify-center px-4 py-2.5 rounded-full text-center text-xs font-bold text-white bg-sky-600 hover:bg-sky-700 shadow-sm"
               >
                 Request Proposal
@@ -180,4 +353,3 @@ export default function Navbar({ activeSection }: NavbarProps) {
     </header>
   );
 }
-

@@ -4,19 +4,34 @@
  */
 
 import React, { useState, useRef } from "react";
+import { motion } from "motion/react";
 import { Mail, Phone, MapPin, Upload, FileText, CheckCircle, Trash2, Send, Clock, Sparkles, ArrowRight } from "lucide-react";
 import { InquiryFormState } from "../types";
 
-export default function ContactForm() {
+interface ContactFormProps {
+  prefilledProduct?: string;
+}
+
+export default function ContactForm({ prefilledProduct }: ContactFormProps) {
   const [formData, setFormData] = useState<InquiryFormState>({
     name: "",
     email: "",
     company: "",
     phone: "",
-    message: "",
+    message: prefilledProduct ? `Inquiry regarding: ${prefilledProduct}` : "",
     interestedService: "Oncology",
     urgency: "Medium (1-3 months)",
   });
+
+  React.useEffect(() => {
+    if (prefilledProduct) {
+      setFormData(prev => ({
+        ...prev,
+        message: `Inquiry regarding: ${prefilledProduct}`
+      }));
+    }
+  }, [prefilledProduct]);
+
 
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [isDragActive, setIsDragActive] = useState(false);
@@ -95,10 +110,16 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white border-b border-slate-200/60 relative">
+    <section id="contact" className="py-24 bg-[#eef6ff] bg-grid-pattern border-b border-sky-100/80 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch"
+        >
           
           {/* Contact Details Panel (Left) */}
           <div className="lg:col-span-5 flex flex-col justify-between text-left space-y-8">
@@ -441,7 +462,7 @@ export default function ContactForm() {
             </div>
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

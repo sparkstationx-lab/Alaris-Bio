@@ -3,19 +3,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export interface TumorModel {
-  id: string;
-  name: string; // e.g. MC38, CT26, A549
-  type: "Syngeneic" | "Xenograft (CDX)" | "Humanized" | "PDX";
-  origin: string; // e.g. Colon, Lung, Breast, Prostate
-  species: string; // e.g. Mouse, Human
-  hostStrain: string; // e.g. C57BL/6, BALB/c, Athymic Nude, NSG
-  growthRate: "Fast" | "Moderate" | "Slow";
-  doublingTimeDays: number;
-  standardTreatments: string[]; // e.g. anti-PD-1, Gemcitabine, Cisplatin
-  controlDataUrl?: string;
-  description: string;
+export interface ProductItem {
+  sNo: number;
+  name: string;
+  packing: string;
+  form: "Tablets" | "Capsules" | "Other";
+  category?: string;
 }
+
+// Retain alias if needed for backwards compatibility
+export type TumorModel = ProductItem;
+
 
 export interface ServiceDetail {
   id: string;

@@ -45,9 +45,10 @@ export default function About() {
             <span>cGMP Quality & Regulatory Framework</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Manufacturing Standards & Execution
+            WHO-GMP Certified Manufacturing Facilities &amp; Standards
           </h2>
         </motion.div>
+
 
         {/* Bento Grid Row 1: Quality Standards Overview + Technical Specs */}
         <motion.div 
@@ -161,7 +162,7 @@ export default function About() {
               <div className="relative h-48 overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" 
-                  alt="Gwalior Plant Facility"
+                  alt="Alaris Biosciences WHO-GMP pharmaceutical manufacturing facility plant 1 in Gwalior Madhya Pradesh"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -181,7 +182,7 @@ export default function About() {
               <div className="relative h-48 overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" 
-                  alt="Nalagarh Plant Facility"
+                  alt="Excise free cGMP nutraceutical softgel manufacturing plant 2 in Nalagarh Himachal Pradesh"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -201,10 +202,11 @@ export default function About() {
               <div className="relative h-48 overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80" 
-                  alt="Roorkee Plant Facility"
+                  alt="Dermatology ointment creams and high speed blister packaging plant 3 in Roorkee Uttarakhand"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                 <span className="absolute bottom-3 left-4 px-2.5 py-1 rounded bg-sky-500 text-slate-950 font-mono text-[10px] font-bold uppercase">
                   Plant 3 — Roorkee (U.K.)

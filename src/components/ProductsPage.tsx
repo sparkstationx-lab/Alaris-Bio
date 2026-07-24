@@ -93,7 +93,7 @@ export default function ProductsPage({ onBackToHome, onRequestProposal }: Produc
             <span>WHO-GMP Certified Catalog</span>
           </div>
           <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Complete Product List
+            DCGI Approved Pharmaceutical Products &amp; Formulations Index
           </h1>
           <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
             <span className="px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase shadow-2xs">1200+ Approved Formulations</span>
@@ -111,10 +111,11 @@ export default function ProductsPage({ onBackToHome, onRequestProposal }: Produc
         >
           <img 
             src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1400&q=80" 
-            alt="Pharmaceutical Formulations Production Line"
+            alt="WHO-GMP certified tablet and capsule commercial batch production line at Alaris Biosciences"
             referrerPolicy="no-referrer"
             className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
           />
+
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
 
           <div className="relative z-10 max-w-xl text-left">

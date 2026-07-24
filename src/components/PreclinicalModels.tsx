@@ -41,7 +41,7 @@ export default function PreclinicalModels({ onViewAllProducts }: PreclinicalMode
             <span>Product Catalog</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Featured Pharmaceutical Products
+            DCGI Approved Pharmaceutical Products &amp; Formulations
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
             <span className="px-3 py-1 rounded-full bg-white border border-slate-200/80 text-slate-700 text-xs font-mono font-bold uppercase shadow-2xs">WHO-GMP Certified</span>
@@ -60,10 +60,11 @@ export default function PreclinicalModels({ onViewAllProducts }: PreclinicalMode
         >
           <img 
             src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1400&q=80" 
-            alt="Pharmaceutical Formulations & Blister Packs"
+            alt="DCGI approved pharmaceutical formulations and blister strip packaging manufactured at Alaris Biosciences"
             referrerPolicy="no-referrer"
             className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
           />
+
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
 
           <div className="relative z-10 max-w-xl text-left">

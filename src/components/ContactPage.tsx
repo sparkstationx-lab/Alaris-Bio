@@ -135,8 +135,9 @@ export default function ContactPage({ onBackToHome, prefilledProduct }: ContactP
           </div>
 
           <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Contact & Third-Party Enquiries
+            Contact &amp; Third-Party Manufacturing Enquiry | Alaris Biosciences
           </h1>
+
 
           <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
             <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase shadow-2xs">

@@ -13,6 +13,7 @@ import ContactForm from "./components/ContactForm";
 import ContactPage from "./components/ContactPage";
 import Footer from "./components/Footer";
 import ProductsPage from "./components/ProductsPage";
+import SEOManager from "./components/SEOManager";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
@@ -79,7 +80,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#f0f7ff] text-slate-900 font-sans selection:bg-sky-200 selection:text-sky-900 antialiased">
+      {/* On-Page SEO Dynamic Manager */}
+      <SEOManager viewMode={viewMode} />
+
       {/* Dynamic Header Navbar */}
+
       <Navbar 
         activeSection={
           viewMode === "products-catalog"

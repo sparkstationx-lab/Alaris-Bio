@@ -44,7 +44,7 @@ export default function Hero({ onRequestProposal, onNavigateSection }: HeroProps
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <motion.img
           src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=2400&q=85"
-          alt="Pharmaceutical Manufacturing Cleanroom"
+          alt="WHO-GMP certified pharmaceutical cleanroom and automated medicine manufacturing plant at Alaris Biosciences"
           referrerPolicy="no-referrer"
           initial={{ scale: 1 }}
           animate={{ scale: [1, 1.15, 1] }}
@@ -76,11 +76,11 @@ export default function Hero({ onRequestProposal, onNavigateSection }: HeroProps
             <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-400"></span>
           </span>
           <span className="text-xs font-mono tracking-wider text-sky-200 font-bold uppercase">
-            Facility Status: Active & Onboarding Studies
+            Facility Status: Active & Onboarding Commercial Batch Enquiries
           </span>
         </motion.div>
 
-        {/* Bold Impactful Headline */}
+        {/* Bold Impactful SEO-Optimized Headline */}
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -90,15 +90,16 @@ export default function Hero({ onRequestProposal, onNavigateSection }: HeroProps
           Alaris <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-300 to-blue-200">Biosciences</span>
         </motion.h1>
 
-        {/* Refined Center-Aligned Tagline */}
-        <motion.div 
+        {/* Refined H2 Tagline with Primary Targeted Keywords */}
+        <motion.h2 
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-4 sm:mt-5 text-xs sm:text-sm font-mono font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-sky-300/90 uppercase text-center max-w-3xl"
+          className="mt-4 sm:mt-5 text-xs sm:text-sm font-mono font-semibold tracking-[0.18em] sm:tracking-[0.22em] text-sky-300/90 uppercase text-center max-w-3xl"
         >
-          YOUR TRUSTED THIRD-PARTY MEDICINE MANUFACTURER
-        </motion.div>
+          WHO-GMP THIRD-PARTY PHARMACEUTICAL MANUFACTURER &amp; CONTRACT MANUFACTURING SERVICES
+        </motion.h2>
+
 
 
         {/* Primary Call-to-Action Buttons (Center Aligned) */}

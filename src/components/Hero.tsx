@@ -40,13 +40,20 @@ export default function Hero({ onRequestProposal, onNavigateSection }: HeroProps
       id="home"
       className="relative min-h-[92vh] pt-32 sm:pt-40 pb-20 flex items-center justify-center overflow-hidden border-b border-slate-200/60 bg-slate-950 text-white"
     >
-      {/* Full-width High-Resolution Background Image */}
+      {/* Full-width High-Resolution Background Image with Slow Continuous Zoom-In */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=2400&q=85"
-          alt="Preclinical Bio Laboratory"
+        <motion.img
+          src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=2400&q=85"
+          alt="Pharmaceutical Manufacturing Cleanroom"
           referrerPolicy="no-referrer"
-          className="w-full h-full object-cover object-center scale-105 filter brightness-90 animate-fade-in"
+          initial={{ scale: 1 }}
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{
+            duration: 25,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
+          className="w-full h-full object-cover object-center filter brightness-90 pointer-events-none"
         />
         {/* Subtle, sophisticated gradient overlays for high contrast and light-blue ambiance */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/70 to-slate-950/90 backdrop-blur-[2px]" />

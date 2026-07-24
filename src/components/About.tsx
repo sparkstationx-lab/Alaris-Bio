@@ -59,28 +59,26 @@ export default function About() {
         >
           
           {/* Card 1: Quality Assurance & Certification */}
-          <div className="lg:col-span-7 bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 shadow-2xs flex flex-col justify-between text-left">
-            <div>
-              <div className="flex items-center space-x-2 mb-3">
-                <ShieldCheck className="w-5 h-5 text-sky-600" />
-                <span className="text-[11px] font-mono font-bold text-sky-700 uppercase tracking-wider">
-                  Quality Assurance Policy
-                </span>
-              </div>
-              
-              <h3 className="font-display text-2xl font-extrabold text-slate-900 mb-6">
-                Stringent Batch Protocols & Regulatory Integrity
-              </h3>
+          <div className="lg:col-span-7 bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 shadow-2xs flex flex-col justify-between text-left relative overflow-hidden group">
+            <div className="flex items-center space-x-2 mb-3">
+              <ShieldCheck className="w-5 h-5 text-sky-600" />
+              <span className="text-[11px] font-mono font-bold text-sky-700 uppercase tracking-wider">
+                Quality Assurance Policy
+              </span>
+            </div>
+            
+            <h3 className="font-display text-2xl font-extrabold text-slate-900 mb-6">
+              Stringent Batch Protocols & Regulatory Integrity
+            </h3>
 
-              {/* Metric Chips Grid */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                {manufacturingStandards.map((item, i) => (
-                  <div key={i} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/60 flex flex-col justify-between">
-                    <span className="text-xs font-bold font-display text-slate-900 mb-1">{item.title}</span>
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-sky-100/80 text-sky-800 w-fit">{item.badge}</span>
-                  </div>
-                ))}
-              </div>
+            {/* Metric Chips Grid */}
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              {manufacturingStandards.map((item, i) => (
+                <div key={i} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/60 flex flex-col justify-between">
+                  <span className="text-xs font-bold font-display text-slate-900 mb-1">{item.title}</span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-sky-100/80 text-sky-800 w-fit">{item.badge}</span>
+                </div>
+              ))}
             </div>
 
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 font-mono">
@@ -93,13 +91,20 @@ export default function About() {
           </div>
 
           {/* Card 2: Plant Infrastructure Specs */}
-          <div className="lg:col-span-5 bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl shadow-slate-950/10 flex flex-col justify-between relative overflow-hidden text-left">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="lg:col-span-5 bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl shadow-slate-950/10 flex flex-col justify-between relative overflow-hidden text-left group">
+            {/* Background facility visual */}
+            <img 
+              src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1000&q=80" 
+              alt="Controlled Air Handling Unit"
+              referrerPolicy="no-referrer"
+              className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
             
-            <div>
+            <div className="relative z-10">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] font-mono font-bold text-sky-400 uppercase tracking-wider">Facility Specifications</span>
-                <span className="px-2.5 py-0.5 bg-sky-500/10 border border-sky-500/20 text-sky-300 rounded-full text-[10px] font-mono">
+                <span className="px-2.5 py-0.5 bg-sky-500/20 border border-sky-400/30 text-sky-300 rounded-full text-[10px] font-mono backdrop-blur-md">
                   Gwalior • Nalagarh • Roorkee
                 </span>
               </div>
@@ -124,7 +129,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="bg-slate-800/80 rounded-2xl p-3.5 border border-slate-700/50 flex items-center space-x-3">
+            <div className="relative z-10 bg-slate-800/80 backdrop-blur-md rounded-2xl p-3.5 border border-slate-700/50 flex items-center space-x-3">
               <Zap className="w-4 h-4 text-sky-400 shrink-0" />
               <span className="text-xs font-mono font-bold text-sky-200 uppercase">
                 Separate Dedicated Nutraceutical Facilities
@@ -132,6 +137,86 @@ export default function About() {
             </div>
           </div>
 
+        </motion.div>
+
+        {/* Visual Manufacturing Facilities Showcase */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-16"
+        >
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="text-[10px] font-mono font-bold text-sky-600 uppercase tracking-wider block mb-1">Infrastructure Highlights</span>
+            <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              State-of-the-Art Production Units
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* Facility 1 */}
+            <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xs group hover:shadow-md transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" 
+                  alt="Gwalior Plant Facility"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-4 px-2.5 py-1 rounded bg-sky-500 text-slate-950 font-mono text-[10px] font-bold uppercase">
+                  Plant 1 — Gwalior (M.P.)
+                </span>
+              </div>
+              <div className="p-5 text-left">
+                <h4 className="font-display font-bold text-base text-slate-900 mb-1">High-Capacity Solid Dosage Unit</h4>
+                <p className="text-xs font-mono text-slate-600">Tablets, Hard Gelatin Capsules & Oral Liquids in PET bottles.</p>
+              </div>
+            </div>
+
+            {/* Facility 2 */}
+            <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xs group hover:shadow-md transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" 
+                  alt="Nalagarh Plant Facility"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-4 px-2.5 py-1 rounded bg-sky-500 text-slate-950 font-mono text-[10px] font-bold uppercase">
+                  Plant 2 — Nalagarh (H.P.)
+                </span>
+              </div>
+              <div className="p-5 text-left">
+                <h4 className="font-display font-bold text-base text-slate-900 mb-1">Excise-Free cGMP Nutra Plant</h4>
+                <p className="text-xs font-mono text-slate-600">Veg Softgels, Effervescent Tablets & Dedicated Sachet Lines.</p>
+              </div>
+            </div>
+
+            {/* Facility 3 */}
+            <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xs group hover:shadow-md transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80" 
+                  alt="Roorkee Plant Facility"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-4 px-2.5 py-1 rounded bg-sky-500 text-slate-950 font-mono text-[10px] font-bold uppercase">
+                  Plant 3 — Roorkee (U.K.)
+                </span>
+              </div>
+              <div className="p-5 text-left">
+                <h4 className="font-display font-bold text-base text-slate-900 mb-1">Derma & High-Speed Packaging</h4>
+                <p className="text-xs font-mono text-slate-600">Ointments, Creams, Alu-Alu Blister & PVC Strip Packaging.</p>
+              </div>
+            </div>
+
+          </div>
         </motion.div>
 
         {/* Bento Row 2: Operational Process Workflow */}

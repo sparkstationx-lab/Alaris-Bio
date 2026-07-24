@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import { Shield, Activity, MapPin, Mail, Phone, User, ChevronRight } from "lucide-react";
+import { Shield, Activity, MapPin, Mail, Phone, User, ChevronRight, ExternalLink } from "lucide-react";
 
 interface FooterProps {
   onNavigateSection?: (sectionId: string) => void;
@@ -152,6 +152,22 @@ export default function Footer({ onNavigateSection }: FooterProps) {
             <span>Alaris Biosciences — Quality & Innovation in Medicine Manufacturing</span>
             <span>WHO-GMP & ISO Quality Principles Compliant</span>
           </div>
+        </div>
+
+        {/* Slim Copyright & Developer Bar */}
+        <div className="mt-8 pt-4 border-t border-slate-900/80 text-center">
+          <p className="text-xs text-slate-400 font-sans tracking-wide">
+            © 2026 Alaris Biosciences. All Rights Reserved. Website Developed &amp; Managed by{" "}
+            <a
+              href="https://spark-station-2.vercel.app"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sky-400 hover:text-sky-300 font-semibold underline underline-offset-4 decoration-sky-400/50 hover:decoration-sky-300 transition-colors inline-flex items-center space-x-1"
+            >
+              <span>Spark Station</span>
+              <ExternalLink className="w-3 h-3 inline-block ml-0.5 opacity-80" />
+            </a>
+          </p>
         </div>
 
       </div>

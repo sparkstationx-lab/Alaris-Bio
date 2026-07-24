@@ -146,11 +146,11 @@ export default function ContactForm({ prefilledProduct }: ContactFormProps) {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-mono font-bold uppercase text-slate-400">Scientific Inquiries</span>
-                  <a href="mailto:info@alarisbio.com" className="text-sm font-bold text-slate-900 hover:text-sky-600 transition-colors">
-                    info@alarisbio.com
+                  <span className="text-[10px] font-mono font-bold uppercase text-slate-400">Official Sales Email</span>
+                  <a href="mailto:Sales.alarisbio@gmail.com" className="text-sm font-bold text-slate-900 hover:text-sky-600 transition-colors">
+                    Sales.alarisbio@gmail.com
                   </a>
-                  <span className="text-[10px] text-slate-500 mt-0.5">24h expected response turnaround</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">Quick commercial response turnaround</span>
                 </div>
               </div>
 
@@ -159,11 +159,11 @@ export default function ContactForm({ prefilledProduct }: ContactFormProps) {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-mono font-bold uppercase text-slate-400">Scheduling Hotline</span>
-                  <a href="tel:+16505550198" className="text-sm font-bold text-slate-900 hover:text-sky-600 transition-colors">
-                    +1 (650) 555-0198
+                  <span className="text-[10px] font-mono font-bold uppercase text-slate-400">Direct Contact (Mr. Amit Bhalla)</span>
+                  <a href="tel:+919753204758" className="text-sm font-bold text-slate-900 hover:text-sky-600 transition-colors">
+                    +91-9753204758
                   </a>
-                  <span className="text-[10px] text-slate-500 mt-0.5">Mon – Fri, 8:00 AM – 5:00 PM PST</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">Mon – Sat, 9:00 AM – 6:30 PM IST</span>
                 </div>
               </div>
 
@@ -172,16 +172,35 @@ export default function ContactForm({ prefilledProduct }: ContactFormProps) {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-mono font-bold uppercase text-slate-400">Barrier Lab Location</span>
+                  <span className="text-[10px] font-mono font-bold uppercase text-slate-400">Registered Office</span>
                   <span className="text-sm font-bold text-slate-900">
-                    Oyster Point Biotech Hub
+                    5, Basantkunj, Ramaua Triangle
                   </span>
                   <span className="text-[10px] text-slate-500 mt-0.5">
-                    South San Francisco, CA 94080
+                    NH44, Jhansi Agra Highway, Gwalior 474006, M.P.
                   </span>
                 </div>
               </div>
 
+            </div>
+
+            {/* Visual Facility Image Card */}
+            <div className="rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xs relative group h-44">
+              <img 
+                src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80" 
+                alt="cGMP Pharmaceutical Manufacturing Cleanroom"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+              <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
+                <span className="text-[11px] font-mono font-bold text-sky-200">
+                  WHO-GMP Facility • Fast Quotation
+                </span>
+                <span className="px-2 py-0.5 rounded bg-sky-500 text-slate-950 text-[10px] font-mono font-bold uppercase">
+                  31 Days Delivery
+                </span>
+              </div>
             </div>
 
             {/* Quality badge footer */}

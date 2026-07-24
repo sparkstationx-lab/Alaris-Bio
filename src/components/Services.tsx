@@ -131,24 +131,30 @@ export default function Services({ onRequestProposal }: ServicesProps) {
         {/* 🍱 BENTO GRID CONTAINER */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-stretch">
           
-          {/* 1. BENTO CARD: Company Overview & Capabilities */}
+          {/* 1. BENTO CARD: Company Overview & Capabilities with Background Image */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="md:col-span-12 lg:col-span-8 bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950 text-white rounded-3xl p-6 sm:p-8 border border-sky-900/40 shadow-xl relative overflow-hidden flex flex-col justify-between group h-full"
+            className="md:col-span-12 lg:col-span-8 bg-slate-950 text-white rounded-3xl p-6 sm:p-8 border border-sky-900/40 shadow-xl relative overflow-hidden flex flex-col justify-between group h-full"
           >
-            {/* Glow accent */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-sky-500/20 transition-all duration-500" />
+            {/* Background High-Res Pharma Plant Image with Dark Gradient Overlay */}
+            <img 
+              src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1400&q=80" 
+              alt="Pharmaceutical Cleanroom Facility"
+              referrerPolicy="no-referrer"
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-25 group-hover:opacity-35 transition-opacity duration-700 pointer-events-none"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/40 pointer-events-none" />
 
-            <div>
+            <div className="relative z-10">
               <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 font-mono text-[10px] font-bold uppercase tracking-wider border border-sky-400/30 flex items-center space-x-1.5">
+                <span className="px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 font-mono text-[10px] font-bold uppercase tracking-wider border border-sky-400/30 flex items-center space-x-1.5 backdrop-blur-md">
                   <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
                   <span>WHO-GMP Standard</span>
                 </span>
-                <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold uppercase tracking-wider border border-emerald-400/30 flex items-center space-x-1.5">
+                <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold uppercase tracking-wider border border-emerald-400/30 flex items-center space-x-1.5 backdrop-blur-md">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                   <span>3rd Party Enquiries Open</span>
                 </span>
@@ -160,27 +166,27 @@ export default function Services({ onRequestProposal }: ServicesProps) {
 
               {/* Minimal Metric Chips instead of prose */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs text-center">
+                <div className="p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-center">
                   <span className="text-sky-400 font-extrabold text-2xl block font-display">1200+</span>
-                  <span className="text-[10px] font-mono text-slate-300 uppercase font-semibold">Product Approvals</span>
+                  <span className="text-[10px] font-mono text-slate-200 uppercase font-semibold">Product Approvals</span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs text-center">
+                <div className="p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-center">
                   <span className="text-sky-400 font-extrabold text-2xl block font-display">3</span>
-                  <span className="text-[10px] font-mono text-slate-300 uppercase font-semibold">Manufacturing Hubs</span>
+                  <span className="text-[10px] font-mono text-slate-200 uppercase font-semibold">Manufacturing Hubs</span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs text-center">
+                <div className="p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-center">
                   <span className="text-sky-400 font-extrabold text-2xl block font-display">31 Days</span>
-                  <span className="text-[10px] font-mono text-slate-300 uppercase font-semibold">Dispatch Policy</span>
+                  <span className="text-[10px] font-mono text-slate-200 uppercase font-semibold">Dispatch Policy</span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs text-center">
+                <div className="p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-center">
                   <span className="text-sky-400 font-extrabold text-2xl block font-display">QC COA</span>
-                  <span className="text-[10px] font-mono text-slate-300 uppercase font-semibold">Every Batch Tested</span>
+                  <span className="text-[10px] font-mono text-slate-200 uppercase font-semibold">Every Batch Tested</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
-              <span className="text-xs font-mono text-slate-400 tracking-wider uppercase">
+            <div className="relative z-10 mt-8 pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
+              <span className="text-xs font-mono text-slate-300 tracking-wider uppercase">
                 Established 2007 • High Capacity Production
               </span>
 
@@ -194,17 +200,24 @@ export default function Services({ onRequestProposal }: ServicesProps) {
             </div>
           </motion.div>
 
-          {/* 2. BENTO CARD: 31-Day Speed Guarantee */}
+          {/* 2. BENTO CARD: 31-Day Speed Guarantee with Blister Packaging Visual */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="md:col-span-12 lg:col-span-4 bg-gradient-to-br from-sky-600 via-sky-500 to-blue-600 text-white rounded-3xl p-6 sm:p-8 shadow-lg shadow-sky-600/15 border border-sky-400/40 relative overflow-hidden flex flex-col justify-between h-full"
+            className="md:col-span-12 lg:col-span-4 bg-gradient-to-br from-sky-600 via-sky-500 to-blue-700 text-white rounded-3xl p-6 sm:p-8 shadow-lg shadow-sky-600/15 border border-sky-400/40 relative overflow-hidden flex flex-col justify-between h-full group"
           >
-            <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-white/10 rounded-full blur-xl pointer-events-none" />
+            {/* Blister strip packaging background */}
+            <img 
+              src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" 
+              alt="Medicine Blister Strip Packaging"
+              referrerPolicy="no-referrer"
+              className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-sky-950/80 via-sky-600/60 to-transparent pointer-events-none" />
 
-            <div>
+            <div className="relative z-10">
               <div className="p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 w-fit text-white mb-4">
                 <Zap className="w-6 h-6 text-sky-200" />
               </div>
@@ -217,12 +230,12 @@ export default function Services({ onRequestProposal }: ServicesProps) {
                 31 Working Days
               </h3>
 
-              <span className="inline-block px-3 py-1 rounded-full bg-white/15 text-white text-[11px] font-mono font-bold uppercase tracking-wider mb-4 border border-white/20">
+              <span className="inline-block px-3 py-1 rounded-full bg-white/15 text-white text-[11px] font-mono font-bold uppercase tracking-wider mb-4 border border-white/20 backdrop-blur-md">
                 From Artwork Finalization
               </span>
             </div>
 
-            <div className="space-y-2 border-t border-white/20 pt-4">
+            <div className="relative z-10 space-y-2 border-t border-white/20 pt-4">
               <div className="flex items-center space-x-2 text-xs text-sky-50 font-semibold">
                 <CheckCircle2 className="w-4 h-4 text-sky-200 shrink-0" />
                 <span>Strict Time-Bound Dispatch Policy</span>
@@ -234,13 +247,56 @@ export default function Services({ onRequestProposal }: ServicesProps) {
             </div>
           </motion.div>
 
-          {/* 3. BENTO CARD: Manufacturing Locations */}
+          {/* 3. BENTO CARD: QC Laboratory & Testing Visual Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.12 }}
+            className="md:col-span-12 lg:col-span-5 bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between h-full group"
+          >
+            <div className="relative h-48 sm:h-52 overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1000&q=80" 
+                alt="QC Analytical Laboratory Testing"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+              <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
+                <span className="px-2.5 py-1 bg-sky-500/90 text-slate-950 text-[10px] font-mono font-bold uppercase rounded-md backdrop-blur-xs">
+                  Mandatory Batch Testing
+                </span>
+                <span className="text-[11px] font-mono text-sky-200 font-bold">
+                  HPLC & Spectrometry
+                </span>
+              </div>
+            </div>
+
+            <div className="p-6">
+              <h3 className="font-display text-lg font-bold text-slate-900 tracking-tight mb-2">
+                Ultra-Modern QC Analytical Laboratory
+              </h3>
+              <div className="grid grid-cols-2 gap-2 text-[11px] font-mono font-semibold text-slate-700 pt-2 border-t border-slate-100">
+                <div className="flex items-center space-x-1.5 text-sky-700">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
+                  <span>Assay & Dissolution</span>
+                </div>
+                <div className="flex items-center space-x-1.5 text-sky-700">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
+                  <span>Microbiological Analysis</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* 4. BENTO CARD: Manufacturing Locations */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.15 }}
-            className="md:col-span-12 lg:col-span-6 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between h-full"
+            className="md:col-span-12 lg:col-span-7 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between h-full"
           >
             <div>
               <div className="flex items-center space-x-2 mb-5">
@@ -277,7 +333,7 @@ export default function Services({ onRequestProposal }: ServicesProps) {
             </div>
           </motion.div>
 
-          {/* 4. BENTO CARD: Dosage Forms Offered */}
+          {/* 5. BENTO CARD: Dosage Forms Offered */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -320,13 +376,13 @@ export default function Services({ onRequestProposal }: ServicesProps) {
             </div>
           </motion.div>
 
-          {/* 5. BENTO CARD: Salient Features */}
+          {/* 6. BENTO CARD: Salient Features */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.25 }}
-            className="md:col-span-12 lg:col-span-7 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between h-full"
+            className="md:col-span-12 lg:col-span-6 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between h-full"
           >
             <div>
               <div className="flex items-center space-x-2 mb-5">
@@ -367,13 +423,13 @@ export default function Services({ onRequestProposal }: ServicesProps) {
             </div>
           </motion.div>
 
-          {/* 6. BENTO CARD: Therapeutic Segments */}
+          {/* 7. BENTO CARD: Therapeutic Segments */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.3 }}
-            className="md:col-span-12 lg:col-span-5 bg-gradient-to-br from-sky-50/90 via-white to-blue-50/90 rounded-3xl p-6 sm:p-7 border border-sky-200/80 shadow-2xs flex flex-col justify-between h-full"
+            className="md:col-span-12 bg-gradient-to-br from-sky-50/90 via-white to-blue-50/90 rounded-3xl p-6 sm:p-7 border border-sky-200/80 shadow-2xs flex flex-col justify-between h-full"
           >
             <div>
               <div className="flex items-center space-x-2 mb-4">
@@ -414,32 +470,40 @@ export default function Services({ onRequestProposal }: ServicesProps) {
             </div>
           </motion.div>
 
-          {/* 7. BENTO CARD: Full Width Bottom CTA */}
+          {/* 8. BENTO CARD: Full Width Bottom CTA with Image Banner */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.35 }}
-            className="md:col-span-12 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-5"
+            className="md:col-span-12 bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-5 relative overflow-hidden group"
           >
-            <div className="flex items-center space-x-4">
-              <div className="p-3 rounded-2xl bg-sky-100 text-sky-700 border border-sky-200 shrink-0">
+            <img 
+              src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1400&q=80" 
+              alt="Pharmaceutical Packaging Line"
+              referrerPolicy="no-referrer"
+              className="absolute inset-0 w-full h-full object-cover opacity-15 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent pointer-events-none" />
+
+            <div className="relative z-10 flex items-center space-x-4">
+              <div className="p-3 rounded-2xl bg-sky-500/20 text-sky-300 border border-sky-400/30 shrink-0 backdrop-blur-md">
                 <Send className="w-5 h-5" />
               </div>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-                <h4 className="font-display text-lg font-extrabold text-slate-900 tracking-tight">
+                <h4 className="font-display text-lg font-extrabold text-white tracking-tight">
                   Ready to launch or expand your medicine brand?
                 </h4>
                 <div className="flex items-center space-x-2">
-                  <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-mono font-bold uppercase">Product List</span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-mono font-bold uppercase">MOQ Quotes</span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-slate-800 text-sky-300 text-[10px] font-mono font-bold uppercase">Product List</span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-slate-800 text-sky-300 text-[10px] font-mono font-bold uppercase">MOQ Quotes</span>
                 </div>
               </div>
             </div>
 
             <button
               onClick={handleEnquiryClick}
-              className="w-full sm:w-auto px-7 py-3 bg-slate-900 hover:bg-sky-600 text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-md hover:shadow-sky-600/20 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shrink-0 flex items-center justify-center space-x-2"
+              className="relative z-10 w-full sm:w-auto px-7 py-3 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-full shadow-md transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shrink-0 flex items-center justify-center space-x-2"
             >
               <span>Submit 3rd Party Requirement</span>
               <ArrowRight className="w-4 h-4" />

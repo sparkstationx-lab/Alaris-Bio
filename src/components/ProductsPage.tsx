@@ -102,6 +102,42 @@ export default function ProductsPage({ onBackToHome, onRequestProposal }: Produc
           </div>
         </motion.div>
 
+        {/* Visual Product Catalog Image Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-10 bg-slate-950 text-white rounded-3xl p-6 sm:p-8 border border-sky-900/40 shadow-xl relative overflow-hidden flex flex-col sm:flex-row items-center justify-between gap-6 group"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1400&q=80" 
+            alt="Pharmaceutical Formulations Production Line"
+            referrerPolicy="no-referrer"
+            className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
+
+          <div className="relative z-10 max-w-xl text-left">
+            <span className="px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 font-mono text-[10px] font-bold uppercase tracking-wider border border-sky-400/30 inline-block mb-3 backdrop-blur-md">
+              WHO-GMP Grade Production
+            </span>
+            <h2 className="font-display text-2xl font-extrabold text-white tracking-tight leading-snug">
+              Commercial Medicine Batches with Guaranteed 31-Day Turnaround
+            </h2>
+          </div>
+
+          <div className="relative z-10 flex items-center space-x-3 shrink-0">
+            <div className="px-4 py-2.5 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
+              <span className="text-sky-400 font-extrabold text-xl block font-display">{tabletCount}</span>
+              <span className="text-[10px] font-mono text-slate-200 uppercase font-semibold">Tablets</span>
+            </div>
+            <div className="px-4 py-2.5 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
+              <span className="text-sky-400 font-extrabold text-xl block font-display">{capsuleCount}</span>
+              <span className="text-[10px] font-mono text-slate-200 uppercase font-semibold">Capsules</span>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Filter & Search Toolbar */}
         <div className="max-w-5xl mx-auto mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border border-slate-200/80 shadow-sm">
           

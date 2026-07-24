@@ -34,7 +34,7 @@ export default function PreclinicalModels({ onViewAllProducts }: PreclinicalMode
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-14 flex flex-col space-y-3"
+          className="text-center max-w-3xl mx-auto mb-10 flex flex-col space-y-3"
         >
           <div className="inline-flex items-center justify-center space-x-2 self-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100 text-sky-700 text-[11px] font-mono uppercase font-bold tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-sky-600" />
@@ -47,6 +47,43 @@ export default function PreclinicalModels({ onViewAllProducts }: PreclinicalMode
             <span className="px-3 py-1 rounded-full bg-white border border-slate-200/80 text-slate-700 text-xs font-mono font-bold uppercase shadow-2xs">WHO-GMP Certified</span>
             <span className="px-3 py-1 rounded-full bg-white border border-slate-200/80 text-slate-700 text-xs font-mono font-bold uppercase shadow-2xs">Assay & Dissolution Tested</span>
             <span className="px-3 py-1 rounded-full bg-white border border-slate-200/80 text-slate-700 text-xs font-mono font-bold uppercase shadow-2xs">Custom Packaging Options</span>
+          </div>
+        </motion.div>
+
+        {/* Featured Visual Banner Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-10 bg-gradient-to-r from-slate-950 via-slate-900 to-sky-950 text-white rounded-3xl p-6 sm:p-8 border border-sky-900/40 shadow-xl relative overflow-hidden flex flex-col sm:flex-row items-center justify-between gap-6 group"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1400&q=80" 
+            alt="Pharmaceutical Formulations & Blister Packs"
+            referrerPolicy="no-referrer"
+            className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
+
+          <div className="relative z-10 max-w-xl text-left">
+            <span className="px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 font-mono text-[10px] font-bold uppercase tracking-wider border border-sky-400/30 inline-block mb-3 backdrop-blur-md">
+              1200+ DCGI Approved Formulations
+            </span>
+            <h3 className="font-display text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
+              Commercial Scale Medicine Batches with Complete COA Assurance
+            </h3>
+          </div>
+
+          <div className="relative z-10 flex flex-wrap items-center gap-3 shrink-0">
+            <div className="px-4 py-2 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
+              <span className="text-sky-400 font-extrabold text-lg block font-display">100%</span>
+              <span className="text-[9px] font-mono text-slate-200 uppercase font-semibold">Quality COA</span>
+            </div>
+            <div className="px-4 py-2 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
+              <span className="text-sky-400 font-extrabold text-lg block font-display">Alu-Alu / PVC</span>
+              <span className="text-[9px] font-mono text-slate-200 uppercase font-semibold">Blister Strip</span>
+            </div>
           </div>
         </motion.div>
 
